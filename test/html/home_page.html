@@ -1,237 +1,27 @@
+<!-- MailTemplate.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Spoonie API</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <style>
-        html, body {
-          height: 100%;
-          margin: 0;
-          background: #111;
-          color: #eee;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-          overflow: hidden;
-          position: relative;
-        }
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          padding: 1em;
-          z-index: 1;
-        }
-        .container {
-          text-align: left;
-          max-width: 600px;
-          width: 100%;
-          letter-spacing: 0.125em;
-          animation: textflicker 0.01s infinite alternate;
-          text-shadow: 0.06rem 0 0.06rem #ea36af, -0.125rem 0 0.06rem #75fa69;
-          position: relative;
-          z-index: 3;
-          background: rgba(0, 0, 0, 0.0);
-          padding: 1em;
-          border-radius: 8px;
-        }
-        h1 {
-          font-size: 5em;
-          margin: 0 0 0.3em 0;
-          animation: rgbFlash 1.5s infinite;
-          text-shadow: none;
-        }
-        p {
-          margin: 0.3em 0;
-        }
-        .floating-image {
-          position: fixed;
-          width: 150px;
-          height: 150px;
-          background: url('https://blog.coccoc.com/wp-content/uploads/2025/04/1-dinh-nghia-absolute-cinema-683x683.jpg') center/contain no-repeat;
-          z-index: 2;
-          animation: none;
-          text-shadow: none;
-          filter: none;
-        }
-        #youtube-player {
-          position: fixed;
-          bottom: 10px;
-          right: 10px;
-          width: 320px;
-          height: 180px;
-          z-index: 1;
-          opacity: 1.0;
-          border-radius: 8px;
-          box-shadow: 0 0 15px rgba(0,0,0,0.6);
-        }
-        #muteToggle, #shuffleVideo {
-          position: fixed;
-          top: 10px;
-          z-index: 10000;
-          padding: 0.5em 1em;
-          cursor: pointer;
-          background: rgba(0,0,0,0.7);
-          border: none;
-          color: #eee;
-          font-size: 1em;
-          border-radius: 5px;
-          pointer-events: auto;
-        }
-        #muteToggle {
-          right: 10px;
-        }
-        #shuffleVideo {
-          right: 120px;
-        }
-        @keyframes textflicker {
-          from {
-            text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-          }
-          to {
-            text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-          }
-        }
-        @keyframes rgbFlash {
-          0%, 100% { color: red; }
-          33% { color: lime; }
-          66% { color: blue; }
-        }
-    </style>
-</head>
-<body>
-
-<!-- YouTube Player -->
-<iframe
-        id="youtube-player"
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/V7vtKvV8oXo?enablejsapi=1&autoplay=1&loop=1&playlist=V7vtKvV8oXo&mute=1"
-        referrerpolicy="no-referrer-when-downgrade"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-></iframe>
-
-<!-- Mute Button -->
-<button id="muteToggle">Unmute</button>
-
-<!-- Shuffle Button -->
-<button id="shuffleVideo">Shuffle Video</button>
-
-<!-- Floating DVD Image -->
-<div class="floating-image" id="dvd"></div>
-
-<!-- Main Text Content -->
-<div class="container">
-    <h1>Zesty: Spoonie</h1>
-    <p>Nguyễn Đăng Minh.</p>
-    <p>Nguyễn Tiến Luật.</p>
-    <p>Nguyễn Thọ Tài.</p>
-    <p>Lê Văn Hoàng Tấn.</p>
-    <p>Nguyễn Minh Việt.</p>
+<head><meta charset="UTF-8"><title>Your OTP Code</title></head>
+<body style="margin:0;font-family:'Poppins',sans-serif;background:#fff;font-size:14px;">
+<div style="max-width:680px;margin:0 auto;padding:30px;background:#f4f7ff;background-image:url(https://marketplace.canva.com/EAFhwfMq3ds/1/0/1600w/canva-colorful-cute-cats-illustration-desktop-wallpaper-KBBZLdpjLcM.jpg);background-repeat:no-repeat;background-size:800px 452px;background-position:top center;color:#434343;">
+	<header><img alt="Zesty Logo" src="" height="30px"/></header>
+	<main>
+		<div style="margin-top:70px;padding:90px 20px;background:#fff;border-radius:30px;text-align:center;">
+			<div style="max-width:489px;margin:0 auto;">
+				<h1 style="font-size:24px;font-weight:600;color:#1f1f1f;margin:0;">Your OTP Code</h1>
+				<p style="margin:16px 0 0;font-size:16px;font-weight:500;">Hello {{.UserName}},</p>
+				<p style="margin:16px 0 0;font-weight:500;letter-spacing:0.4px;">To proceed with updating your password, please use the one-time password (OTP) below. This code is valid for <span style="font-weight:600;color:#1f1f1f;">5 minutes</span> and should not be shared with anyone.</p>
+				<div style="margin-top:48px;display:inline-block;max-width:100%;font-size:28px;font-weight:700;letter-spacing:12px;color:#fff;background-color:#0b57d0;padding:16px 12px;padding-right: 0px;border-radius:12px;overflow-wrap:break-word;box-sizing:border-box;">{{.OTP}}</div>
+			</div>
+			<p style="margin-top:12px;font-size:12px;color:#888;">If you didn’t request this code, you can safely ignore this email.</p>
+		</div>
+		<p style="max-width:400px;margin:40px auto 0;text-align:center;font-weight:500;color:#8c8c8c;">Need help? Email us at <a href="mailto:support@spoonie.social" style="color:#499fb6;text-decoration:none;">support@spoonie.social</a><br>or visit our <a href="https://rroll.to/wxjWSC" style="color:#499fb6;text-decoration:none;">Help Center</a>.</p>
+	</main>
+	<footer style="max-width:490px;margin:10px auto 0;text-align:center;border-top:1px solid #e6ebf1;padding-top:30px;">
+		<p style="margin:0;font-size:16px;font-weight:600;">Group 03: Zesty</p>
+		<p style="margin:8px 0 0;font-size:12px;">127.0.0.1, Internet.</p>
+		<div style="margin-top:16px;"><a href="https://github.com/fit-k23" style="margin-left:8px;"><img width="36px" src="https://raw.githubusercontent.com/gauravghongde/social-icons/refs/heads/master/PNG/Black/Github_black.png" alt="Github"/></a></div>
+		<p style="margin-top:16px;font-size:12px;">Copyright ©2025 Zesty. All rights reserved.</p>
+	</footer>
 </div>
-
-<!-- Video List & Randomizer -->
-<script>
-    const videos = [
-        "lbLzYB4_n2s",
-        "V7vtKvV8oXo",
-        "oq7aGYmxUvw",
-        "cwyTleTL06Y",
-        "tOzVkZ3Xd5I",
-        "s0hcKc-P7cQ",
-        "pxk-xujl6XU",
-        "GLhhSvZpi1g"
-    ];
-
-    // Pick a random video ID for initial load
-    const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-    const iframe = document.getElementById("youtube-player");
-    iframe.src = `https://www.youtube.com/embed/${randomVideo}?enablejsapi=1&autoplay=1&loop=1&playlist=${randomVideo}&mute=1`;
-</script>
-
-<!-- Load YouTube IFrame API -->
-<script src="https://www.youtube.com/iframe_api"></script>
-
-<!-- YouTube Player API Control -->
-<script>
-    let player;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('youtube-player', {
-        events: {
-          onReady: (event) => {
-            event.target.playVideo();
-            updateButton();
-
-            // Auto toggle mute/unmute once after 1 second
-            setTimeout(() => {
-              if (player.isMuted()) {
-                player.unMute();
-              } else {
-                player.mute();
-              }
-              updateButton();
-            }, 1000);
-          }
-        }
-      });
-    }
-
-    const btn = document.getElementById('muteToggle');
-    btn.onclick = () => {
-      if (!player) return;
-      if (player.isMuted()) {
-        player.unMute();
-      } else {
-        player.mute();
-      }
-      updateButton();
-    };
-
-    function updateButton() {
-      if (!player) return;
-      btn.textContent = player.isMuted() ? 'Mute' : 'Unmute';
-    }
-
-    // Shuffle Button Logic
-    const shuffleBtn = document.getElementById('shuffleVideo');
-    shuffleBtn.onclick = () => {
-      if (!player) return;
-      const newVideo = videos[Math.floor(Math.random() * videos.length)];
-      player.loadVideoById({
-        videoId: newVideo,
-        suggestedQuality: 'default'
-      });
-    };
-</script>
-
-<!-- Floating DVD Logo Animation -->
-<script>
-    (() => {
-      const dvd = document.getElementById('dvd'), speed = 2;
-      let x = Math.random() * (window.innerWidth - 150);
-      let y = Math.random() * (window.innerHeight - 150);
-      let vx = speed * (Math.random() < 0.5 ? -1 : 1);
-      let vy = speed * (Math.random() < 0.5 ? -1 : 1);
-
-      function anim() {
-        x += vx; y += vy;
-        if (x <= 0 || x >= window.innerWidth - 150) vx = -vx;
-        if (y <= 0 || y >= window.innerHeight - 150) vy = -vy;
-        dvd.style.left = x + 'px';
-        dvd.style.top = y + 'px';
-        requestAnimationFrame(anim);
-      }
-      anim();
-
-      window.addEventListener('resize', () => {
-        if (x > window.innerWidth - 150) x = window.innerWidth - 150;
-        if (y > window.innerHeight - 150) y = window.innerHeight - 150;
-      });
-    })();
-</script>
-
-</body>
-</html>
+</body></html>
